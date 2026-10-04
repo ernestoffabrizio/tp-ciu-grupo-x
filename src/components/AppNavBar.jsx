@@ -105,7 +105,7 @@ export default function AppNavBar() {
                 <line x1="4" y1="4" x2="68" y2="4" stroke="#000" strokeWidth="1.2" />
                 <polygon points="68,2 72,4 68,6" fill="#000" />
               </svg>
-              <span>-nombre de ejemplo-</span>
+              <span>cammelcase</span>
             </div>
           </a>
         </div>
