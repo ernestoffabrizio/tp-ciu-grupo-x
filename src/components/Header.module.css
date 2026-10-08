@@ -39,8 +39,23 @@
 }
 
 .columnaIzquierda {
-  flex: 1;
+  display: flex;
   justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+}
+.columnaCentro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.columnaDerecha {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1; 
+  gap: 0.5rem;
 }
 
 .enlacesPrincipales {
@@ -63,16 +78,6 @@
   height: 1.5rem;
 }
 
-.columnaCentro {
-  flex-shrink: 0;
-  padding: 0 4rem;
-}
-
-.columnaDerecha {
-  flex: 1;
-  justify-content: flex-end;
-  gap: 2rem;
-}
 
 .enlaceNavegacion {
   color: var(--colorTexto);

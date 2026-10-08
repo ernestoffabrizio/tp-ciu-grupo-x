@@ -1,13 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styles from './AppNavBar.module.css'; 
+import { useState, useEffect, useRef } from 'react';
+import styles from './Header.module.css'; 
+import { Link } from "react-router";
 
-export default function AppNavBar() {
+export default function Header() {
   const [menuActivo, setMenuActivo] = useState(null);
   const [mostrarBuscador, setMostrarBuscador] = useState(false);
   const [menuMovilAbierto, setMenuMovilAbierto] = useState(false);
   const [cantidadCarrito, setCantidadCarrito] = useState(0); 
   const [carritoAbierto, setCarritoAbierto] = useState(false);
+  
   const referenciaNavegacion = useRef(null);
+  
   const alternarDesplegable = (nombreMenu) => {
     setMenuActivo((menuPrevio) => (menuPrevio === nombreMenu ? null : nombreMenu));
   };
@@ -33,7 +36,7 @@ export default function AppNavBar() {
 
       <div className={styles.barraContenido}>
         
-        {/* inicio, productos e informacion desplegables */}
+        {/* inicio y productos despegable */}
         <nav className={`${styles.columnaNavegacion} ${styles.columnaIzquierda}`} aria-label="Menú principal">
           <button 
             className={styles.botonHamburguesa} 
@@ -46,7 +49,8 @@ export default function AppNavBar() {
           </button>
 
           <div className={`${styles.enlacesPrincipales} ${menuMovilAbierto ? styles.abierto : ''}`}>
-            <a href="#inicio" className={styles.enlaceNavegacion}>INICIO</a>
+            {/* Cambiado <a> por <Link> y href por to */}
+            <Link to="/" className={styles.enlaceNavegacion} onClick={() => setMenuMovilAbierto(false)}>INICIO</Link>
 
             <div className={styles.contenedorDesplegable}>
               <button
@@ -63,33 +67,10 @@ export default function AppNavBar() {
 
               {menuActivo === 'productos' && (
                 <div className={styles.cajaSubopciones}>
-                  <a href="#novedades" className={styles.enlaceSubopcion}>Novedades</a>
-                  <a href="#ejemplo1" className={styles.enlaceSubopcion}>Ejemplo productos</a>
-                  <a href="#ejemplo2" className={styles.enlaceSubopcion}>Ejemplo productos</a>
-                  <a href="#ofertas" className={styles.enlaceSubopcion}>Ofertas</a>
-                </div>
-              )}
-            </div>
-
-            <div className={styles.contenedorDesplegable}>
-              <button
-                type="button"
-                className={styles.botonDesplegable}
-                onClick={() => alternarDesplegable('informacion')}
-                aria-expanded={menuActivo === 'informacion'}
-              >
-                INFORMACIÓN
-                <svg className={`${styles.iconoFlecha} ${menuActivo === 'informacion' ? styles.iconoFlechaAbierta : ''}`} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {menuActivo === 'informacion' && (
-                <div className={styles.cajaSubopciones}>
-                  <a href="#envios" className={styles.enlaceSubopcion}>Métodos de Envío</a>
-                  <a href="#preguntas-frecuentes" className={styles.enlaceSubopcion}>Preguntas Frecuentes</a>
-                  <a href="#ejemplo3" className={styles.enlaceSubopcion}>Ejemplo info.</a>
-                  <a href="#cambios-devoluciones" className={styles.enlaceSubopcion}>Cambios y Devoluciones</a>
+                  <Link to="/novedades" className={styles.enlaceSubopcion} onClick={() => setMenuActivo(null)}>Novedades</Link>
+                  <Link to="/ejemplo1" className={styles.enlaceSubopcion} onClick={() => setMenuActivo(null)}>Ejemplo productos</Link>
+                  <Link to="/ejemplo2" className={styles.enlaceSubopcion} onClick={() => setMenuActivo(null)}>Ejemplo productos</Link>
+                  <Link to="/ofertas" className={styles.enlaceSubopcion} onClick={() => setMenuActivo(null)}>Ofertas</Link>
                 </div>
               )}
             </div>
@@ -98,7 +79,7 @@ export default function AppNavBar() {
 
         {/* logo/nombre del medio de la página */}
         <div className={`${styles.columnaNavegacion} ${styles.columnaCentro}`}>
-          <a href="/" className={styles.enlaceLogotipo} aria-label="Ir al inicio de -ejemplo-">
+          <Link to="/" className={styles.enlaceLogotipo} aria-label="Ir al inicio de -ejemplo-">
             <div className={styles.logotipoTexto}>
               <svg className={styles.flechaDecorativaLogo} viewBox="0 0 70 8">
                 <path d="M0 4 L5 1 L4 4 L5 7 Z" fill="#000" />
@@ -107,12 +88,13 @@ export default function AppNavBar() {
               </svg>
               <span>cammelcase</span>
             </div>
-          </a>
+          </Link>
         </div>
 
         {/* contacto, lupita y carrito */}
         <div className={`${styles.columnaNavegacion} ${styles.columnaDerecha}`}>
-          <a href="#contacto" className={`${styles.enlaceNavegacion} ${styles.enlaceContacto}`}>CONTACTO</a>
+          
+          <Link to="/contacto" className={`${styles.enlaceNavegacion} ${styles.enlaceContacto}`}>CONTACTO</Link>
           <button
             type="button"
             className={styles.botonIconoAccion}
@@ -137,7 +119,7 @@ export default function AppNavBar() {
             </svg>
             <span className={styles.contadorCarrito}>{cantidadCarrito}</span>
           </button>
-
+            
         </div>
 
       </div>
