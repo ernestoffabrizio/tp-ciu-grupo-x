@@ -1,7 +1,8 @@
 import Carousel from 'react-bootstrap/Carousel';
-import ejemplo1 from "../../media/Ejemplo.png"
-import ejemplo2 from "../../media/Ejemplo2.png"
-import ejemplo3 from "../../media/Ejemplo3.png"
+import { Link } from 'react-router';
+import carrusel1 from "../../media/carrusel1.jpg"
+import carrusel2 from "../../media/carrusel2.jpg"
+import carrusel3 from "../../media/carrusel3.jpg"
 import styles from './Carousel.module.css';
 
 function CarouselFadeExample() {
@@ -9,31 +10,31 @@ function CarouselFadeExample() {
     <div className={styles.contenedorCarrusel}>
       <Carousel fade>
         <Carousel.Item>
-            <a href="/producto1">
+            <Link to="/producto1">
                 <img
                     className={`d-block w-100 ${styles.imagenCarrusel}`}
-                    src={ejemplo1}
-                    alt="ejemplo1"
+                    src={carrusel1}
+                    alt="Zapato de cuero"
                 />
-            </a>
+            </Link>
         </Carousel.Item>
         <Carousel.Item>
-            <a href="/producto2">
+            <Link to="/producto2">
                 <img
                     className={`d-block w-100 ${styles.imagenCarrusel}`}
-                    src={ejemplo2}
-                    alt="ejemplo2"
+                    src={carrusel2}
+                    alt="Zapato de cuero"
                 />
-            </a>
+            </Link>
         </Carousel.Item>
         <Carousel.Item>
-            <a href="/producto3">
+            <Link to="/producto3">
                 <img
                     className={`d-block w-100 ${styles.imagenCarrusel}`}
-                    src={ejemplo3}
-                    alt="ejemplo3"
+                    src={carrusel3}
+                    alt="Zapato de cuero"
                 />
-            </a>
+            </Link>
         </Carousel.Item>
       </Carousel>
     </div>

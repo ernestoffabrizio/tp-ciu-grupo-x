@@ -1,4 +1,6 @@
 import zapato1 from '../../media/zapato1.jpg';
+import zapato2 from '../../media/zapato2.jpg';
+import zapato3 from '../../media/zapato3.jpg';
 
 const productos = [
   {
@@ -18,7 +20,7 @@ const productos = [
     nombre: "Zapato de cuero",
     categoria: "Zapatos",
     precio: 205990,
-    imagen: zapato1,
+    imagen: zapato2,
     descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 25,
     caracteristicas: [
@@ -31,7 +33,7 @@ const productos = [
     nombre: "Zapato de cuero",
     categoria: "Zapatos",
     precio: 205990,
-    imagen: zapato1,
+    imagen: zapato3,
     descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 0,
     caracteristicas: [

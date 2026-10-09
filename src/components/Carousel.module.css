@@ -1,19 +1,24 @@
 .contenedorCarrusel {
   max-width: 100%;
-  margin: 0 auto;
-  padding: 0 8rem; 
+  margin: 0;
+  padding: 0; 
 }
 
 .imagenCarrusel {
-  height: 35rem; 
+  width: 100%;
+  height: 35rem;
   object-fit: cover;
   object-position: center;
 }
+
 @media (max-width: 991px) {
-  .contenedorCarrusel {
-    padding: 0 1.5rem; 
-  }
   .imagenCarrusel {
     height: 16rem;
   }
 }
+
+/* @media (max-width: 575px) {
+.imagenCarrusel {
+height: 12rem;
+}
+} */

@@ -18,7 +18,6 @@ function App() {
         <Route path="/productos" element={ <Productos/> }/>
         <Route path="/productos/:id" element={ <DetalleProducto/> }/>
         <Route path="/contacto" element={ <Contacto/> }/>
-        {/*<Route path="/nosotros" element={ <Nosotros/> }/> agregar? */}
         <Route path="*" element={ <NotFound/> }/>
       </Routes>
       
