@@ -1,158 +1,149 @@
+import zapato1 from '../../media/zapato1.jpg';
+
 const productos = [
   {
     id: 1,
-    nombre: "P1",
-    categoria: "C1",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
-    stock: 1,
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
+    stock: 5,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   },
   {
     id: 2,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
-    stock: 5,
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
+    stock: 25,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", 
+      ""
     ]
   },
   {
     id: 3,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 0,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   },
   {
     id: 4,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
-    stock: 5,
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
+    stock: 2,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   },
   {
     id: 5,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
-    stock: 5,
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
+    stock: 10,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   },
   {
     id: 6,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
-    stock: 5,
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
+    stock: 0,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   },
   {
     id: 7,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 5,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   },
   {
     id: 8,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 5,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   },
   {
     id: 9,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 5,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   },
   {
     id: 10,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 5,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   },
   {
     id: 11,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 5,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   },
   {
     id: 12,
-    nombre: "P2",
-    categoria: "C2",
-    precio: 1,
-    imagen: "/img/",
-    descripcion: "",
+    nombre: "Zapato de cuero",
+    categoria: "Zapatos",
+    precio: 205990,
+    imagen: zapato1,
+    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 5,
     caracteristicas: [
-      "C1",
-      "C2"
+      "Color negro", ""
     ]
   }
 ];

@@ -3,7 +3,6 @@ import styles from './BotonProductos.module.css';
 
 export default function BotonProductos() {
   
-  // me ayudo la ia para q vuelva arriba ?
   const irArriba = () => {
     window.scrollTo({
       top: 0,

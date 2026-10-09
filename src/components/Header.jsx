@@ -68,8 +68,6 @@ export default function Header() {
               {menuActivo === 'productos' && (
                 <div className={styles.cajaSubopciones}>
                   <Link to="/novedades" className={styles.enlaceSubopcion} onClick={() => setMenuActivo(null)}>Novedades</Link>
-                  <Link to="/ejemplo1" className={styles.enlaceSubopcion} onClick={() => setMenuActivo(null)}>Ejemplo productos</Link>
-                  <Link to="/ejemplo2" className={styles.enlaceSubopcion} onClick={() => setMenuActivo(null)}>Ejemplo productos</Link>
                   <Link to="/ofertas" className={styles.enlaceSubopcion} onClick={() => setMenuActivo(null)}>Ofertas</Link>
                 </div>
               )}

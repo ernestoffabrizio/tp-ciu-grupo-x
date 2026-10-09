@@ -1,7 +1,7 @@
 .seccionProductos {
   max-width: 100%;
   margin: auto;
-  padding: 0 8rem; 
+  padding: 0 4rem; 
 }
 
 .tarjetaProducto {
@@ -10,10 +10,10 @@
 }
 
 .imagenProducto {
-  object-fit: contain;
-  height: 300px; 
   width: 100%;
-  margin-bottom: 1.5rem;
+  height: 350px;
+  object-fit: contain;
+  margin-bottom: 1rem;
 }
 
 .tituloProducto {
@@ -32,7 +32,7 @@
   color: #111;
 }
 
-.textoDespacho {
+/* .textoDespacho {
   font-size: 0.75rem;
   color: #777;
   margin-bottom: 0.8rem;
@@ -54,7 +54,7 @@
   font-weight: 700;
   font-size: 0.95rem;
   color: #000;
-}
+} */
 
 @media (max-width: 991px) {
   .seccionProductos {
