@@ -9,6 +9,10 @@ const productos = [
     categoria: "Zapatos",
     precio: 205990,
     imagen: zapato1,
+    imagenes: [
+    '../../media/zapato1.jpg',
+    '../../media/zapato2.jpg',
+  ],
     descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 5,
     caracteristicas: [
@@ -21,6 +25,10 @@ const productos = [
     categoria: "Zapatos",
     precio: 205990,
     imagen: zapato2,
+    imagenes: [
+    '../../media/zapato2.jpg',
+    '../../media/zapato3.jpg',
+  ],
     descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 25,
     caracteristicas: [
@@ -34,6 +42,10 @@ const productos = [
     categoria: "Zapatos",
     precio: 205990,
     imagen: zapato3,
+    imagenes: [
+    '../../media/zapato3.jpg',
+    '../../media/zapato2.jpg',
+  ],
     descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
     stock: 0,
     caracteristicas: [

@@ -10,7 +10,7 @@ function CarouselFadeExample() {
     <div className={styles.contenedorCarrusel}>
       <Carousel fade>
         <Carousel.Item>
-            <Link to="/producto1">
+            <Link to="/productos/1">
                 <img
                     className={`d-block w-100 ${styles.imagenCarrusel}`}
                     src={carrusel1}
@@ -19,7 +19,7 @@ function CarouselFadeExample() {
             </Link>
         </Carousel.Item>
         <Carousel.Item>
-            <Link to="/producto2">
+            <Link to="/productos/2">
                 <img
                     className={`d-block w-100 ${styles.imagenCarrusel}`}
                     src={carrusel2}
@@ -28,7 +28,7 @@ function CarouselFadeExample() {
             </Link>
         </Carousel.Item>
         <Carousel.Item>
-            <Link to="/producto3">
+            <Link to="/productos/3">
                 <img
                     className={`d-block w-100 ${styles.imagenCarrusel}`}
                     src={carrusel3}
