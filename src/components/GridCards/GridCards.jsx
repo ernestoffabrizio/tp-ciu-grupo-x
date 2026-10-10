@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router';
 import styles from './GridCards.module.css';
-import productos from '../data/productos';
+import productos from '../../data/productos';
 
 export default function GridCards() {
   const productosDestacados = productos.slice(0, 6);

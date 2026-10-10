@@ -4,8 +4,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import productos from "../data/productos";
-import GaleriaProducto from "../components/GaleriaProducto";
-import InformacionProducto from "../components/InformacionProducto";
+import GaleriaProducto from "../components/GaleriaProducto/GaleriaProducto";
+import InformacionProducto from "../components/InformacionProductos/InformacionProducto"
 import styles from "./DetalleProducto.module.css";
 
 function DetalleProducto() {

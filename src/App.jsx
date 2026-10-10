@@ -2,8 +2,8 @@ import { Routes, Route } from "react-router";
 import Productos from "./pages/Productos"
 import Inicio from "./pages/Inicio.jsx"
 import DetalleProducto from "./pages/DetalleProducto.jsx"
-import Header from "./components/Header.jsx"
-import Footer from "./components/Footer.jsx"
+import Header from "./components/Header/Header.jsx"
+import Footer from "./components/Footer/Footer.jsx"
 import NotFound from "./pages/NotFound.jsx"
 import Contacto from "./pages/Contacto.jsx"
 

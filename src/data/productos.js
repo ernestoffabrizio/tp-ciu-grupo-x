@@ -1,6 +1,6 @@
-import zapato1 from '../../media/zapato1.jpg';
-import zapato2 from '../../media/zapato2.jpg';
-import zapato3 from '../../media/zapato3.jpg';
+import zapato1 from "../.././media/zapato1.jpg"
+import zapato2 from '../.././media/zapato2.jpg';
+import zapato3 from '../.././media/zapato3.jpg';
 
 const productos = [
   {

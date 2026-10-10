@@ -1,0 +1,29 @@
+.contenedorCarrusel {
+  max-width: 1500px; 
+  width: 90%;       
+  margin: 0 auto;
+  padding: 0;
+}
+
+.imagenCarrusel {
+  width: 100%;
+  height: 35rem;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 991px) {
+  .contenedorCarrusel {
+    width: 95%;
+  }
+  .imagenCarrusel {
+    height: 22rem;
+  }
+}
+@media (max-width: 575px) {
+  .contenedorCarrusel {
+    width: 100%;
+  }
+  .imagenCarrusel {
+    height: 14rem;
+  }
+}
