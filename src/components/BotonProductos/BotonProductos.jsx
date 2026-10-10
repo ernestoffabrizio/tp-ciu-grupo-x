@@ -17,7 +17,7 @@ export default function BotonProductos() {
         className={styles.botonVerMas} 
         onClick={irArriba}
       >
-        VER MÁS
+        VER TODOS LOS PRODUCTOS
       </Link>
     </div>
   );

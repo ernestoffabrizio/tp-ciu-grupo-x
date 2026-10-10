@@ -1,20 +1,23 @@
-import zapato1 from "../.././media/zapato1.jpg"
-import zapato2 from '../.././media/zapato2.jpg';
-import zapato3 from '../.././media/zapato3.jpg';
-
 const productos = [
   {
     id: 1,
     nombre: "Zapato de cuero",
     categoria: "Zapatos",
     precio: 205990,
-    imagen: zapato1,
+    imagen: "../../media/zapato1.jpg",
     imagenes: [
-    '../../media/zapato1.jpg',
-    '../../media/zapato2.jpg',
-  ],
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 5,
+      "../../media/zapato1.jpg",
+      "../../media/zapato1-1.jpg",
+      "../../media/zapato1-2.jpg",
+    ],
+    descripcion: "Zapato de vestir con empeine liso. Horma redonda. Suela a juego con tacón bajo.",
+    talles: [
+      { numero: 38, stock: 2 },
+      { numero: 39, stock: 4 },
+      { numero: 40, stock: 7 },
+      { numero: 41, stock: 0 },
+      { numero: 42, stock: 1 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]
@@ -23,14 +26,21 @@ const productos = [
     id: 2,
     nombre: "Zapato de cuero",
     categoria: "Zapatos",
-    precio: 205990,
-    imagen: zapato2,
+    precio: 165990,
+    imagen: "../../media/zapato2.jpg",
     imagenes: [
-    '../../media/zapato2.jpg',
-    '../../media/zapato3.jpg',
-  ],
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 25,
+      "../../media/zapato2.jpg",
+      '../../media/zapato2-1.jpg',
+      '../../media/zapato2-2.jpg',
+    ],
+    descripcion: "Zapato con cordones. Empeine liso con detalle de ribete. Horma redonda. Suela dentada.",
+    talles: [
+      { numero: 38, stock: 0 },
+      { numero: 39, stock: 5 },
+      { numero: 40, stock: 2 },
+      { numero: 41, stock: 0 },
+      { numero: 42, stock: 1 },
+    ],
     caracteristicas: [
       "Color negro", 
       ""
@@ -38,124 +48,230 @@ const productos = [
   },
   {
     id: 3,
-    nombre: "Zapato de cuero",
+    nombre: "Zapato con suela dentada",
     categoria: "Zapatos",
-    precio: 205990,
-    imagen: zapato3,
+    precio: 189990,
+    imagen: "../../media/zapato3.jpg",
     imagenes: [
-    '../../media/zapato3.jpg',
-    '../../media/zapato2.jpg',
-  ],
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 0,
+      "../../media/zapato3.jpg",
+      '../../media/zapato3-1.jpg',
+      '../../media/zapato3-2.jpg',
+    ],
+    descripcion: "Zapato con cierre de doble hebilla. Suela con tacón bajo.",
+    talles: [
+      { numero: 38, stock: 2 },
+      { numero: 39, stock: 8 },
+      { numero: 40, stock: 3 },
+      { numero: 41, stock: 4 },
+      { numero: 42, stock: 11 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]
   },
   {
     id: 4,
-    nombre: "Zapato de cuero",
-    categoria: "Zapatos",
-    precio: 205990,
-    imagen: zapato1,
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 2,
+    nombre: "Bota Chelsea de cuero",
+    categoria: "Botas",
+    precio: 245990,
+    imagen: "../../media/zapato4.jpg",
+    imagenes: [
+      "../../media/zapato4.jpg",
+      '../../media/zapato4-1.jpg',
+      '../../media/zapato4-2.jpg',
+    ],
+    descripcion: "Bota estilo chelsea. Elásticos laterales para facilitar el calce. Horma redonda.",
+    talles: [
+      { numero: 38, stock: 2 },
+      { numero: 39, stock: 4 },
+      { numero: 40, stock: 12 },
+      { numero: 41, stock: 3 },
+      { numero: 42, stock: 15 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]
   },
   {
     id: 5,
-    nombre: "Zapato de cuero",
+    nombre: "Zapato con suela dentada",
     categoria: "Zapatos",
-    precio: 205990,
-    imagen: zapato1,
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 10,
+    precio: 165990,
+    imagen: "../../media/zapato5.jpg",
+    imagenes: [
+      "../../media/zapato5.jpg",
+      "../../media/zapato5-1.jpg",
+      "../../media/zapato5-2.jpg",
+    ],
+    descripcion: "Zapato de cordones. Parte superior lisa con detalle de ribete en el empeine. Horma redonda.",
+    talles: [
+      { numero: 38, stock: 8 },
+      { numero: 39, stock: 3 },
+      { numero: 40, stock: 3 },
+      { numero: 41, stock: 0 },
+      { numero: 42, stock: 1 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]
   },
   {
     id: 6,
-    nombre: "Zapato de cuero",
-    categoria: "Zapatos",
+    nombre: "Bota con árnes",
+    categoria: "Botas",
     precio: 205990,
-    imagen: zapato1,
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 0,
+    imagen: "../../media/zapato6.jpg",
+    imagenes: [
+      "../../media/zapato6.jpg",
+      "../../media/zapato6-1.jpg",
+      "../../media/zapato6-2.jpg",
+    ],
+    descripcion: "Bota de media caña. Detalle de arnés y hebilla lateral. Horma en punta. Suela a juego con tacón bajo.",
+    talles: [
+      { numero: 38, stock: 8 },
+      { numero: 39, stock: 10 },
+      { numero: 40, stock: 3 },
+      { numero: 41, stock: 5 },
+      { numero: 42, stock: 1 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]
   },
   {
     id: 7,
-    nombre: "Zapato de cuero",
-    categoria: "Zapatos",
-    precio: 205990,
-    imagen: zapato1,
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 5,
+    nombre: "Bota de cuero con cordones",
+    categoria: "Botas",
+    precio: 369990,
+    imagen: "../../media/zapato7.jpg",
+    imagenes: [
+      "../../media/zapato7.jpg",
+      "../../media/zapato7-1.jpg",
+      "../../media/zapato7-2.jpg",
+    ],
+    descripcion: "Bota con cordones confeccionadas en piel granulada. Horma cuadrada. Detalle de cordones a color contrastante.",
+    talles: [
+      { numero: 38, stock: 2 },
+      { numero: 39, stock: 1 },
+      { numero: 40, stock: 9 },
+      { numero: 41, stock: 7 },
+      { numero: 42, stock: 3 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]
   },
   {
     id: 8,
-    nombre: "Zapato de cuero",
-    categoria: "Zapatos",
-    precio: 205990,
-    imagen: zapato1,
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 5,
+    nombre: "Mocasín desgastado",
+    categoria: "Mocasines",
+    precio: 189990,
+    imagen: "../../media/zapato8.jpg",
+    imagenes: [
+      "../../media/zapato8.jpg",
+      "../../media/zapato8-1.jpg",
+      "../../media/zapato8-2.jpg",
+    ],
+    descripcion: "Mocasín de vestir. Parte superior con efecto desgastado y detalle de moneda en la tira. Horma redonda.",
+    talles: [
+      { numero: 38, stock: 1 },
+      { numero: 39, stock: 4 },
+      { numero: 40, stock: 2 },
+      { numero: 41, stock: 5 },
+      { numero: 42, stock: 8 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]
   },
   {
     id: 9,
-    nombre: "Zapato de cuero",
-    categoria: "Zapatos",
-    precio: 205990,
-    imagen: zapato1,
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 5,
+    nombre: "Mocasín de cuero",
+    categoria: "Mocasines",
+    precio: 289990,
+    imagen: "../../media/zapato9.jpg",
+    imagenes: [
+      "../../media/zapato9.jpg",
+      "../../media/zapato9-1.jpg",
+      "../../media/zapato9-2.jpg",
+    ],
+    descripcion: "Mocasín casual. Detalle de hebilla en el empeine. Horma redonda. Suela ultrafina.",
+    talles: [
+      { numero: 38, stock: 3 },
+      { numero: 39, stock: 4 },
+      { numero: 40, stock: 3 },
+      { numero: 41, stock: 5 },
+      { numero: 42, stock: 1 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]
   },
   {
     id: 10,
-    nombre: "Zapato de cuero",
-    categoria: "Zapatos",
-    precio: 205990,
-    imagen: zapato1,
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 5,
+    nombre: "Bota con cordones",
+    categoria: "Botas",
+    precio: 155990,
+    imagen: "../../media/zapato10.jpg",
+    imagenes: [
+      "../../media/zapato10.jpg",
+      "../../media/zapato10-1.jpg",
+      "../../media/zapato10-2.jpg",
+    ],
+    descripcion: "Bota con cordones. Parte superior lisa. Horma redonda. Suela gruesa.",
+    talles: [
+      { numero: 38, stock: 2 },
+      { numero: 39, stock: 0 },
+      { numero: 40, stock: 3 },
+      { numero: 41, stock: 0 },
+      { numero: 42, stock: 1 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]
   },
   {
     id: 11,
-    nombre: "Zapato de cuero",
-    categoria: "Zapatos",
+    nombre: "Zueco de piel",
+    categoria: "Zueco",
     precio: 205990,
-    imagen: zapato1,
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 5,
+    imagen: "../../media/zapato11.jpg",
+    imagenes: [
+      "../../media/zapato11.jpg",
+      "../../media/zapato11-1.jpg",
+      "../../media/zapato11-2.jpg",
+    ],
+    descripcion: "Zueco fabricado con piel. Plantilla anatómica. Horma redonda. Suela con volumen.",
+    talles: [
+      { numero: 38, stock: 2 },
+      { numero: 39, stock: 4 },
+      { numero: 40, stock: 2 },
+      { numero: 41, stock: 0 },
+      { numero: 42, stock: 0 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]
   },
   {
     id: 12,
-    nombre: "Zapato de cuero",
-    categoria: "Zapatos",
+    nombre: "Zueco de piel",
+    categoria: "Zuecos",
     precio: 205990,
-    imagen: zapato1,
-    descripcion: "Zapatos de vestir, suela gruesa con dibujo dentado.",
-    stock: 5,
+    imagen: "../../media/zapato12.jpg",
+    imagenes: [
+      "../../media/zapato12.jpg",
+      "../../media/zapato12-1.jpg",
+      "../../media/zapato12-2.jpg",
+    ],
+    descripcion: "Zueco fabricado con piel. Detalle de cinta en el empeine. Plantilla acolchada. Horma redonda. Suela con volumen.",
+    talles: [
+      { numero: 38, stock: 3 },
+      { numero: 39, stock: 2 },
+      { numero: 40, stock: 3 },
+      { numero: 41, stock: 1 },
+      { numero: 42, stock: 4 },
+    ],
     caracteristicas: [
       "Color negro", ""
     ]

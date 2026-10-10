@@ -49,7 +49,7 @@ export default function Header() {
           </button>
 
           <div className={`${styles.enlacesPrincipales} ${menuMovilAbierto ? styles.abierto : ''}`}>
-            {/* Cambiado <a> por <Link> y href por to */}
+
             <Link to="/" className={styles.enlaceNavegacion} onClick={() => setMenuMovilAbierto(false)}>INICIO</Link>
 
             <div className={styles.contenedorDesplegable}>
