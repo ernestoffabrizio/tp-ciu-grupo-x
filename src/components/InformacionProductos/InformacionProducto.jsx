@@ -40,13 +40,25 @@ function InformacionProducto({ producto, onAgregarAlCarrito }) {
     maximumFractionDigits: 2,
   });
 
- // const caracteristicas = producto.caracteristicas.filter(Boolean);
+  const precioTransferencia = producto.precio * 0.90;
+
+  const precioTransferenciaFormateado =
+    precioTransferencia.toLocaleString("es-AR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
 
   return (
     <section className={styles.informacion}>
       <h1>{producto.nombre}</h1>
 
-      <p className={styles.precio}>${precioFormateado}</p>
+      <p className={styles.precio}>
+        ${precioFormateado}
+      </p>
+
+      <p className={styles.precioTransferencia}>
+        <strong>${precioTransferenciaFormateado}</strong> con transferencia
+      </p>
 
       <p className={styles.descripcion}>{producto.descripcion}</p>
 
