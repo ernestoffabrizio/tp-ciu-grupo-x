@@ -6,6 +6,7 @@ import Header from "./components/Header/Header.jsx"
 import Footer from "./components/Footer/Footer.jsx"
 import NotFound from "./pages/NotFound.jsx"
 import Contacto from "./pages/Contacto.jsx"
+import Nosotros from "./pages/Nosotros.jsx"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/productos" element={ <Productos/> }/>
         <Route path="/productos/:id" element={ <DetalleProducto/> }/>
         <Route path="/contacto" element={ <Contacto/> }/>
+        <Route path="/nosotros" element={ <Nosotros/> }/>
         <Route path="*" element={ <NotFound/> }/>
       </Routes>
       
