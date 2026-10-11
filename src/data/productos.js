@@ -17,9 +17,6 @@ const productos = [
       { numero: 40, stock: 7 },
       { numero: 41, stock: 0 },
       { numero: 42, stock: 1 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   },
   {
@@ -40,10 +37,6 @@ const productos = [
       { numero: 40, stock: 2 },
       { numero: 41, stock: 0 },
       { numero: 42, stock: 1 },
-    ],
-    caracteristicas: [
-      "Color negro", 
-      ""
     ]
   },
   {
@@ -64,9 +57,6 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 4 },
       { numero: 42, stock: 11 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   },
   {
@@ -87,9 +77,6 @@ const productos = [
       { numero: 40, stock: 12 },
       { numero: 41, stock: 3 },
       { numero: 42, stock: 15 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   },
   {
@@ -110,9 +97,6 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 0 },
       { numero: 42, stock: 1 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   },
   {
@@ -133,9 +117,6 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 5 },
       { numero: 42, stock: 1 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   },
   {
@@ -156,9 +137,6 @@ const productos = [
       { numero: 40, stock: 9 },
       { numero: 41, stock: 7 },
       { numero: 42, stock: 3 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   },
   {
@@ -179,9 +157,6 @@ const productos = [
       { numero: 40, stock: 2 },
       { numero: 41, stock: 5 },
       { numero: 42, stock: 8 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   },
   {
@@ -202,9 +177,6 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 5 },
       { numero: 42, stock: 1 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   },
   {
@@ -225,9 +197,6 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 0 },
       { numero: 42, stock: 1 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   },
   {
@@ -248,9 +217,6 @@ const productos = [
       { numero: 40, stock: 2 },
       { numero: 41, stock: 0 },
       { numero: 42, stock: 0 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   },
   {
@@ -271,9 +237,6 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 1 },
       { numero: 42, stock: 4 },
-    ],
-    caracteristicas: [
-      "Color negro", ""
     ]
   }
 ];

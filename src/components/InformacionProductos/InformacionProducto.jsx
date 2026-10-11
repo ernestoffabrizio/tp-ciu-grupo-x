@@ -40,7 +40,7 @@ function InformacionProducto({ producto, onAgregarAlCarrito }) {
     maximumFractionDigits: 2,
   });
 
-  const caracteristicas = producto.caracteristicas.filter(Boolean);
+ // const caracteristicas = producto.caracteristicas.filter(Boolean);
 
   return (
     <section className={styles.informacion}>
@@ -92,19 +92,7 @@ function InformacionProducto({ producto, onAgregarAlCarrito }) {
         )}
       </div>
 
-      <div className={styles.caracteristicas}>
-        <h2>Características principales</h2>
-
-        {caracteristicas.length > 0 ? (
-          <ul>
-            {caracteristicas.map((caracteristica, indice) => (
-              <li key={indice}>{caracteristica}</li>
-            ))}
-          </ul>
-        ) : (
-          <p>Próximamente más información.</p>
-        )}
-      </div>
+      
 
       <div className={styles.controlesCantidad}>
         <Button
