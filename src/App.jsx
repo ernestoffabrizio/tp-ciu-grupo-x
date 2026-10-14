@@ -4,6 +4,7 @@ import Inicio from "./pages/Inicio.jsx"
 import DetalleProducto from "./pages/DetalleProducto.jsx"
 import Header from "./components/Header/Header.jsx"
 import Footer from "./components/Footer/Footer.jsx"
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop.jsx"
 import NotFound from "./pages/NotFound.jsx"
 import Contacto from "./pages/Contacto.jsx"
 import Nosotros from "./pages/Nosotros.jsx"
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop/>
       <Header/>
 
       <Routes>
