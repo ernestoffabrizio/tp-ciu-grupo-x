@@ -12,7 +12,7 @@ export function CarritoProvider ({children}) {
             if(repetido) {
                 return carrito.map( (producto) => 
                        producto.id === item.id ?
-                       { ...producto, cantidad: (producto.cantidad || 1) + 1 }
+                       { ...producto, cantidad: (producto.cantidad || 1) + cantidad }
                        : producto
                 );
             }else {
