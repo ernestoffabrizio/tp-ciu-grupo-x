@@ -1,0 +1,16 @@
+.contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.contenedor h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.contenedor p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+  font-size: 1rem;
+}

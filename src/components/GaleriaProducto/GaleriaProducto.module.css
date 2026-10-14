@@ -1,3 +1,4 @@
+
 .galeria {
   display: grid;
   grid-template-columns: 85px minmax(0, 1fr);
@@ -75,14 +76,46 @@
   right: 10px;
 }
 
-@media (max-width: 575px) {
+/* Tablets y celulares */
+@media (max-width: 767px) {
   .galeria {
-    grid-template-columns: 60px minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contenedorImagenPrincipal {
+    width: 100%;
+    order: 1;
+  }
+
+  .miniaturas {
+    width: 100%;
+    order: 2;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 8px;
+  }
+
+  .botonMiniatura {
+    width: 65px;
+    height: 65px;
+    flex: 0 0 65px;
+  }
+
+  .botonMiniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .imagenPrincipal {
     min-height: 250px;
+  }
+
+  .imagenPrincipal img {
+    max-height: 400px;
   }
 
   .flecha {

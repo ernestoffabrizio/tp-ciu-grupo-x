@@ -7,6 +7,7 @@ import productos from "../data/productos";
 import GaleriaProducto from "../components/GaleriaProducto/GaleriaProducto";
 import InformacionProducto from "../components/InformacionProductos/InformacionProducto"
 import styles from "./DetalleProducto.module.css";
+import { useState } from "react";
 
 function DetalleProducto() {
   const { id } = useParams();
@@ -26,9 +27,10 @@ function DetalleProducto() {
     );
   }
 
-  const agregarAlCarrito = (cantidad) => {
+  const agregarAlCarrito = (cantidad, talle) => {
     //conectarcon el carrito
-    console.log("Producto:", producto.id, "Cantidad:", cantidad);
+
+    console.log("Producto:", producto.id, "Cantidad:", cantidad, "Talle:", talle);
   };
 
   return (

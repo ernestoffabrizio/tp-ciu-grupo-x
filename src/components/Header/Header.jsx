@@ -3,7 +3,6 @@ import styles from './Header.module.css';
 import { Link } from "react-router";
 
 export default function Header() {
-  const [menuActivo, setMenuActivo] = useState(null);
   const [mostrarBuscador, setMostrarBuscador] = useState(false);
   const [menuMovilAbierto, setMenuMovilAbierto] = useState(false);
   const [cantidadCarrito, setCantidadCarrito] = useState(0); 
@@ -11,14 +10,10 @@ export default function Header() {
   
   const referenciaNavegacion = useRef(null);
   
-  const alternarDesplegable = (nombreMenu) => {
-    setMenuActivo((menuPrevio) => (menuPrevio === nombreMenu ? null : nombreMenu));
-  };
 
   useEffect(() => {
     function manejarClicFuera(evento) {
       if (referenciaNavegacion.current && !referenciaNavegacion.current.contains(evento.target)) {
-        setMenuActivo(null);
         setMostrarBuscador(false);
         setMenuMovilAbierto(false);
       }
@@ -52,26 +47,13 @@ export default function Header() {
 
             <Link to="/" className={styles.enlaceNavegacion} onClick={() => setMenuMovilAbierto(false)}>INICIO</Link>
 
-            <div className={styles.contenedorDesplegable}>
-              <button
-                type="button"
-                className={styles.botonDesplegable}
-                onClick={() => alternarDesplegable('productos')}
-                aria-expanded={menuActivo === 'productos'}
-              >
-                PRODUCTOS
-                <svg className={`${styles.iconoFlecha} ${menuActivo === 'productos' ? styles.iconoFlechaAbierta : ''}`} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {menuActivo === 'productos' && (
-                <div className={styles.cajaSubopciones}>
-                  <Link to="/novedades" className={styles.enlaceSubopcion} onClick={() => setMenuActivo(null)}>Novedades</Link>
-                  <Link to="/ofertas" className={styles.enlaceSubopcion} onClick={() => setMenuActivo(null)}>Ofertas</Link>
-                </div>
-              )}
-            </div>
+            <Link
+              to="/productos"
+              className={styles.enlaceNavegacion}
+              onClick={() => setMenuMovilAbierto(false)}
+            >
+              PRODUCTOS
+            </Link>
           </div>
         </nav>
 
