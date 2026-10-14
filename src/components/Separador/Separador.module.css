@@ -1,0 +1,13 @@
+.contenedorSeparador {
+  text-align: center;
+  margin: 1.5rem 0; 
+  width: 100%;
+}
+
+.titulo {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #111111;
+  margin: 0;
+  letter-spacing: 0.02em;
+}

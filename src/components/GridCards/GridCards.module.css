@@ -1,0 +1,71 @@
+.seccionProductos {
+  max-width: 1300px; 
+  width: 90%; 
+  margin: 4rem auto;
+  padding: 0;
+}
+.tarjetaProducto {
+  border: none;
+  background: transparent;
+}
+.imagenProducto {
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  object-fit: cover; 
+  object-position: center bottom; 
+  background-color: #f4f4f4; 
+  transition: transform 0.2s ease;
+}
+.tituloProducto {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase; 
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+.precioNormal {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: #111;
+}
+.textoDespacho {
+  font-size: 0.75rem;
+  color: #777;
+  margin-bottom: 0.8rem;
+}
+.separador {
+  width: 55%;
+  margin: 0.8rem auto;
+  border-top: 1px solid #d1d1d1;
+  opacity: 1;
+}
+.precioTransferencia {
+  font-size: 0.85rem;
+  color: #333;
+}
+.precioBold {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #000;
+}
+.enlaceTitulo {
+  color: #000;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.enlaceTitulo:hover {
+  text-decoration: underline;
+}
+@media (max-width: 991px) {
+  .seccionProductos {
+    padding: 0 1.5rem;
+    margin: 2rem auto;
+  }
+}
+@media (max-width: 575px) {
+  .seccionProductos {
+    padding: 0 1rem;
+  }
+}
