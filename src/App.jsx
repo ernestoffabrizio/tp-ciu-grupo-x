@@ -8,25 +8,32 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop.jsx"
 import NotFound from "./pages/NotFound.jsx"
 import Contacto from "./pages/Contacto.jsx"
 import Nosotros from "./pages/Nosotros.jsx"
+import NotFound from "./pages/NotFound.jsx"
+import Contacto from "./pages/Contacto.jsx"
+import Nosotros from "./pages/Nosotros.jsx"
+import { CarritoProvider } from "./context/CarritoContext.jsx";
 
 function App() {
 
   return (
+      <CarritoProvider>
     <>
-      <ScrollToTop/>
-      <Header/>
 
-      <Routes>
-        <Route path="/" element={ <Inicio/> }/>
-        <Route path="/productos" element={ <Productos/> }/>
-        <Route path="/productos/:id" element={ <DetalleProducto/> }/>
-        <Route path="/contacto" element={ <Contacto/> }/>
-        <Route path="/nosotros" element={ <Nosotros/> }/>
-        <Route path="*" element={ <NotFound/> }/>
-      </Routes>
-      
-      <Footer/>
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/productos/:id" element={<DetalleProducto />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+
+        <Footer />
+
     </>
+      </CarritoProvider>
   );
 }
 

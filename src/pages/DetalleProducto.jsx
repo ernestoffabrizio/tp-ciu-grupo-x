@@ -2,43 +2,40 @@ import { useParams, Link } from "react-router";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import productos from "../data/productos";
 import GaleriaProducto from "../components/GaleriaProducto/GaleriaProducto";
-import InformacionProducto from "../components/InformacionProductos/InformacionProducto";
+import InformacionProducto from "../components/InformacionProductos/InformacionProducto"
 import styles from "./DetalleProducto.module.css";
-import notFoundStyles from "./NotFound.module.css";
+import { useState } from "react";
+import { useCarrito } from "../context/CarritoContext";
 
 function DetalleProducto() {
   const { id } = useParams();
-
-  const producto = productos.find((producto) => producto.id === Number(id));
+  const { agregarAlCarrito } = useCarrito; 
+  const producto = productos.find(
+    (producto) => producto.id === Number(id)
+  );
 
   if (!producto) {
     return (
-      <Container className={notFoundStyles.contenedorNotFound}>
-        <h1>Producto no encontrado</h1>
-        <p>El producto que estás buscando no existe.</p>
-        <Link to="/productos" className={notFoundStyles.enlaceInicio}>
+      <Container className="py-5 text-center">
+        <h2>Producto no encontrado</h2>
+        <Button as={Link} to="/productos" variant="dark">
           Volver al catálogo
-        </Link>
+        </Button>
       </Container>
     );
   }
 
-  const agregarAlCarrito = (cantidad, talle) => {
-    //conectarcon el carrito
+  // const agregarAlCarrito = (cantidad, talle) => {
+  //   //conectarcon el carrito
 
-    console.log(
-      "Producto:",
-      producto.id,
-      "Cantidad:",
-      cantidad,
-      "Talle:",
-      talle,
-    );
-  };
+  //   console.log("Producto:", producto.id, "Cantidad:", cantidad, "Talle:", talle);
+  // };
 
   return (
+    
     <Container className={styles.contenedorDetalle}>
       <Row className="g-4">
         <Col xs={12} md={7}>
@@ -48,7 +45,7 @@ function DetalleProducto() {
         <Col xs={12} md={5}>
           <InformacionProducto
             producto={producto}
-            onAgregarAlCarrito={agregarAlCarrito}
+            //onAgregarAlCarrito={agregarAlCarrito}
           />
         </Col>
       </Row>

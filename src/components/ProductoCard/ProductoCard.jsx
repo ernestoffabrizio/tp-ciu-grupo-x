@@ -1,9 +1,10 @@
 import { Link } from "react-router";
+import { useCarrito } from "../../context/CarritoContext";
 
-const ProductoCard = ({ productoActual, agregarAlCarrito }) => {
+const ProductoCard = ({ productoActual }) => {
   // Evaluamos si el producto se quedó sin unidades
   const sinStock = productoActual.stock === 0;
-
+  const { agregarAlCarrito } = useCarrito();
   return (
     <div className="d-flex flex-column h-100 p-2">
       {/* Al hacer clic en la imagen, también lleva al detalle */}
@@ -39,7 +40,7 @@ const ProductoCard = ({ productoActual, agregarAlCarrito }) => {
         ) : (
           <button 
             className="btn btn-dark btn-sm w-100" 
-            onClick={() => agregarAlCarrito && agregarAlCarrito(productoActual)}
+            onClick={() => agregarAlCarrito(productoActual)}
           >
             Agregar al carrito
           </button>

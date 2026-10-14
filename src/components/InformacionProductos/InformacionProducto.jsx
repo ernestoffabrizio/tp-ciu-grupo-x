@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import Button from "react-bootstrap/Button";
 import styles from "./InformacionProducto.module.css";
+import { useCarrito } from "../../context/CarritoContext";
 
-function InformacionProducto({ producto, onAgregarAlCarrito }) {
+function InformacionProducto({ producto }) {
   const [talleSeleccionado, setTalleSeleccionado] = useState(null);
   const [cantidad, setCantidad] = useState(1);
-
+  const { agregarAlCarrito } = useCarrito();
   const talleActual = producto.talles.find(
     (talle) => talle.numero === talleSeleccionado
   );
@@ -131,7 +132,7 @@ function InformacionProducto({ producto, onAgregarAlCarrito }) {
       <Button
         variant="dark"
         className={styles.botonCarrito}
-        onClick={() => onAgregarAlCarrito(cantidad, talleSeleccionado)}
+        onClick={() => agregarAlCarrito(producto, cantidad, talleSeleccionado)}
         disabled={!talleActual || stockDisponible === 0}
       >
         {!talleActual
