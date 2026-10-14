@@ -7,7 +7,7 @@ export function CarritoProvider ({children}) {
 
     const agregarAlCarrito = (item, cantidad, talle) => {
         setCarrito(carrito => {
-            const repetido = carrito.find(producto => producto.id === item.id)
+            const repetido = carrito.find(producto => producto.id === item.id);
 
             if(repetido) {
                 return carrito.map( (producto) => 
@@ -23,9 +23,16 @@ export function CarritoProvider ({children}) {
         }); 
         console.log("Producto:", item.id, "Cantidad:", cantidad, "Talle:", talle)
     };
+
+    const quitarDelCarrito = (item) => {
+        setCarrito(carrito =>{
+            const carritoActualizado = carrito.filter(producto => producto.id !== item.id);
+            return carritoActualizado;
+        })
+    }
     
     return (
-        <CarritoContext.Provider value = {{carrito, agregarAlCarrito}}>
+        <CarritoContext.Provider value = {{carrito, agregarAlCarrito, quitarDelCarrito}}>
             {children}
         </CarritoContext.Provider>
     )

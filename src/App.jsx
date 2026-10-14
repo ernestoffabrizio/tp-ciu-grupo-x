@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound.jsx"
 import Contacto from "./pages/Contacto.jsx"
 import Nosotros from "./pages/Nosotros.jsx"
 import { CarritoProvider } from "./context/CarritoContext.jsx";
+import CompraPage from "./pages/CompraPage.jsx";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/productos/:id" element={<DetalleProducto />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/compra" element={<CompraPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

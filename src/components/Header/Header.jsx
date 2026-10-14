@@ -7,12 +7,12 @@ export default function Header() {
   const [mostrarBuscador, setMostrarBuscador] = useState(false);
   const [menuMovilAbierto, setMenuMovilAbierto] = useState(false);
   // const [cantidadCarrito, setCantidadCarrito] = useState(0); 
-  const { carrito } = useCarrito();
+  const { carrito, quitarDelCarrito } = useCarrito();
   const [carritoAbierto, setCarritoAbierto] = useState(false);
 
   const referenciaNavegacion = useRef(null);
   const totalItemsCarrito = carrito.length;
-  const costoTotalCarrito = carrito.reduce((sum,item) => sum + item.precio * item.cantidad, 0)
+  const costoTotalCarrito = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0)
 
   useEffect(() => {
     function manejarClicFuera(evento) {
@@ -145,21 +145,25 @@ export default function Header() {
             <div
               key={index}
               className={styles.contenidoCarrito}
-            > 
-              <span className={styles.textoCarritoVacio}>Unidades: {producto.cantidad}</span>
-              <img
-                src={producto.imagen}
-                alt={`Imagen de ${producto.nombre}`}
-                title={producto.nombre}
-                className="img-fluid mb-3"
-                style={{ 
-                  width: "200px",
-                  height: "200px",
-                  objectFit: "cover",
-                  cursor: "pointer"
-                 }}
-              />
-              <p className={styles.textoCarritoVacio}>Precio: ${producto.precio * producto.cantidad}</p>
+            >
+              <div className={styles.itemsDelCarrito}>
+                <div className={styles.itemsDelCarrito}>
+                  <img
+                    src={producto.imagen}
+                    alt={`Imagen de ${producto.nombre}`}
+                    title={producto.nombre}
+                    className={styles.imgCarrito}
+                  />
+                </div>
+                <div className={styles.detalleCarrito}>
+                  <span className={styles.textoCarritoVacio}>Unidades: {producto.cantidad}</span>
+                  <p className={styles.textoCarritoVacio}>${producto.precio * producto.cantidad}</p>
+                  <button className={styles.btnEliminarDelCarro} onClick={() => quitarDelCarrito(producto)}>
+                    Quitar
+                  </button>
+                </div>
+              </div>
+
             </div>
           ))
         )}
@@ -172,7 +176,12 @@ export default function Header() {
         </div> */}
 
         <div className={styles.contenidoCarrito}>
-          <span className={styles.textoCarritoVacio}>Total: {costoTotalCarrito}</span> 
+          <span className={styles.textoCarritoVacio}>Total: {costoTotalCarrito}</span>
+        </div>
+        <div className={styles.contenidoCarrito}>
+          <Link to="/compra" className={styles.btnIniciarCompra}>
+            Iniciar Compra
+          </Link>
         </div>
       </div>
 
