@@ -41,6 +41,7 @@ function GaleriaProducto({ producto }) {
             <Image
               src={imagen}
               alt=""
+              title={`${producto.nombre}, vista ${indice + 1}`}
               thumbnail
             />
           </Button>
@@ -61,7 +62,8 @@ function GaleriaProducto({ producto }) {
         <div className={styles.imagenPrincipal}>
           <Image
             src={imagenes[indiceSeleccionado]}
-            alt={`${producto.nombre}, imagen ${indiceSeleccionado + 1}`}
+            alt={`${producto.nombre}, vista ${indiceSeleccionado + 1}`}
+            title={`${producto.nombre}, vista ${indiceSeleccionado + 1}`}
             fluid
           />
         </div>
