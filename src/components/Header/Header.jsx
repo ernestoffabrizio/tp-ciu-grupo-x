@@ -11,8 +11,8 @@ export default function Header() {
   const [carritoAbierto, setCarritoAbierto] = useState(false);
 
   const referenciaNavegacion = useRef(null);
-  // const { totalItemsCarrito } = useCarrito();
   const totalItemsCarrito = carrito.length;
+  const costoTotalCarrito = carrito.reduce((sum,item) => sum + item.precio * item.cantidad, 0)
 
   useEffect(() => {
     function manejarClicFuera(evento) {
@@ -171,7 +171,9 @@ export default function Header() {
           </button>
         </div> */}
 
-
+        <div className={styles.contenidoCarrito}>
+          <span className={styles.textoCarritoVacio}>Total: {costoTotalCarrito}</span> 
+        </div>
       </div>
 
     </header>
