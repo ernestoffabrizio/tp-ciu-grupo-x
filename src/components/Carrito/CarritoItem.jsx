@@ -13,6 +13,7 @@ function CarritoItem({
 
   const subtotal = producto.precio * producto.cantidad;
 
+  //le da formato al precio.
   const subtotalFormateado = subtotal.toLocaleString("es-AR", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
