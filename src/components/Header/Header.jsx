@@ -9,11 +9,10 @@ export default function Header() {
   // const [cantidadCarrito, setCantidadCarrito] = useState(0); 
   const { carrito, quitarDelCarrito } = useCarrito();
   const [carritoAbierto, setCarritoAbierto] = useState(false);
-
   const referenciaNavegacion = useRef(null);
   const totalItemsCarrito = carrito.length;
   const costoTotalCarrito = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0)
-
+  
   useEffect(() => {
     function manejarClicFuera(evento) {
       if (referenciaNavegacion.current && !referenciaNavegacion.current.contains(evento.target)) {
@@ -156,8 +155,9 @@ export default function Header() {
                   />
                 </div>
                 <div className={styles.detalleCarrito}>
-                  <span className={styles.textoCarritoVacio}>Unidades: {producto.cantidad}</span>
-                  <p className={styles.textoCarritoVacio}>${producto.precio * producto.cantidad}</p>
+                  <span className={styles.textoCarritoVacio}>{producto.cantidad} {producto.nombre}</span>
+                  <span className={styles.textoCarritoVacio}>Talle: {producto.talleElegido}</span>
+                  <span className={styles.textoCarritoVacio}>${producto.precio * producto.cantidad}</span>
                   <button className={styles.btnEliminarDelCarro} onClick={() => quitarDelCarrito(producto)}>
                     Quitar
                   </button>
@@ -167,22 +167,18 @@ export default function Header() {
             </div>
           ))
         )}
-        {/* contenido cuando el carrito esta vacio
-        <div className={styles.contenidoCarrito}>
-          <p className={styles.textoCarritoVacio}>El carrito de compras está vacío</p>
-          <button className={styles.enlaceVolverTienda} onClick={() => setCarritoAbierto(false)}>
-            Volver a la tienda
-          </button>
-        </div> */}
-
-        <div className={styles.contenidoCarrito}>
-          <span className={styles.textoCarritoVacio}>Total: {costoTotalCarrito}</span>
-        </div>
-        <div className={styles.contenidoCarrito}>
-          <Link to="/compra" className={styles.btnIniciarCompra}>
-            Iniciar Compra
-          </Link>
-        </div>
+        {carrito.length > 0 && (
+          <>
+            <div className={styles.contenidoCarrito}>
+              <span className={styles.textoCarritoVacio}>Total: {costoTotalCarrito}</span>
+            </div>
+            <div className={styles.contenidoCarrito}>
+              <Link to="/compra" className={styles.btnIniciarCompra}>
+                Iniciar Compra
+              </Link>
+            </div>
+          </>
+        )}
       </div>
 
     </header>

@@ -4,22 +4,21 @@ const CarritoContext = createContext();
 
 export function CarritoProvider ({children}) {
     const [carrito, setCarrito] = useState([]);
-
     const agregarAlCarrito = (item, cantidad, talle) => {
+        item.talleElegido = talle;
         setCarrito(carrito => {
-            const repetido = carrito.find(producto => producto.id === item.id);
-
-            if(repetido) {
-                return carrito.map( (producto) => 
-                       producto.id === item.id ?
-                       { ...producto, cantidad: (producto.cantidad || 1) + cantidad }
-                       : producto
-                );
-            }else {
-                return [...carrito, {...item, cantidad: 1}];
+            let repetido = false;
+            const nuevoCarrito = carrito.map(producto => {
+                if (producto.id === item.id && producto.talle === talle) {
+                    repetido = true;
+                    return {...producto, cantidad: (producto.cantidad || 1) + cantidad};
+                }
+                return producto;
+            });
+            if (!repetido) {
+                return [...carrito, {...item, cantidad: cantidad || 1}];
             }
-            
-            
+            return nuevoCarrito;
         }); 
         console.log("Producto:", item.id, "Cantidad:", cantidad, "Talle:", talle)
     };

@@ -18,7 +18,8 @@ const productos = [
       { numero: 40, stock: 7 },
       { numero: 41, stock: 0 },
       { numero: 42, stock: 1 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 2,
@@ -39,7 +40,8 @@ const productos = [
       { numero: 40, stock: 2 },
       { numero: 41, stock: 0 },
       { numero: 42, stock: 1 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 3,
@@ -60,7 +62,8 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 4 },
       { numero: 42, stock: 11 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 4,
@@ -81,7 +84,8 @@ const productos = [
       { numero: 40, stock: 12 },
       { numero: 41, stock: 3 },
       { numero: 42, stock: 15 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 5,
@@ -102,7 +106,8 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 0 },
       { numero: 42, stock: 1 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 6,
@@ -123,7 +128,8 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 5 },
       { numero: 42, stock: 1 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 7,
@@ -144,7 +150,8 @@ const productos = [
       { numero: 40, stock: 9 },
       { numero: 41, stock: 7 },
       { numero: 42, stock: 3 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 8,
@@ -165,7 +172,8 @@ const productos = [
       { numero: 40, stock: 2 },
       { numero: 41, stock: 5 },
       { numero: 42, stock: 8 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 9,
@@ -186,7 +194,8 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 5 },
       { numero: 42, stock: 1 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 10,
@@ -207,7 +216,8 @@ const productos = [
       { numero: 40, stock: 0 },
       { numero: 41, stock: 0 },
       { numero: 42, stock: 0 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 11,
@@ -228,7 +238,8 @@ const productos = [
       { numero: 40, stock: 2 },
       { numero: 41, stock: 0 },
       { numero: 42, stock: 0 },
-    ]
+    ],
+    talleElegido: ""
   },
   {
     id: 12,
@@ -249,7 +260,8 @@ const productos = [
       { numero: 40, stock: 3 },
       { numero: 41, stock: 1 },
       { numero: 42, stock: 4 },
-    ]
+    ],
+    talleElegido: ""
   }
 ];
 
