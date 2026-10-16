@@ -1,28 +1,31 @@
 import Button from "react-bootstrap/Button";
 import CarritoItem from "../components/Carrito/CarritoItem";
+import { useCarrito } from "../context/CarritoContext";
 
-function Carrito({
-  carrito,
-  onAumentar,
-  onDisminuir,
-  onEliminar,
-  onVaciar
-}) {
+function Carrito() {
+  const {
+    carrito,
+    aumentarCantidad,
+    disminuirCantidad,
+    quitarDelCarrito,
+    vaciarCarrito,
+  } = useCarrito();
+
   const total = carrito.reduce(
-    (acumulado, producto) =>
-      acumulado + producto.precio * producto.cantidad,
-    0
+    (acumulado, producto) => acumulado + producto.precio * producto.cantidad,
+    0,
   );
 
   const cantidadTotal = carrito.reduce(
     (acumulado, producto) => acumulado + producto.cantidad,
-    0
+    0,
   );
 
-  const totalFormateado = total.toLocaleString("es-AR", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
+  const formatoPrecio = (precio) =>
+    precio.toLocaleString("es-AR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
 
   return (
     <div className="container py-4">
@@ -34,23 +37,20 @@ function Carrito({
         <>
           {carrito.map((producto) => (
             <CarritoItem
-              key={`${producto.id}-${producto.talle}`}
+              key={`${producto.id}-${producto.talleElegido}`}
               producto={producto}
-              onAumentar={onAumentar}
-              onDisminuir={onDisminuir}
-              onEliminar={onEliminar}
+              onAumentar={aumentarCantidad}
+              onDisminuir={disminuirCantidad}
+              onEliminar={quitarDelCarrito}
             />
           ))}
 
           <div className="mt-4 text-end">
             <p>Unidades: {cantidadTotal}</p>
 
-            <h3>Total: ${totalFormateado}</h3>
+            <h3>Total: ${formatoPrecio(total)}</h3>
 
-            <Button
-              variant="outline-danger"
-              onClick={onVaciar}
-            >
+            <Button variant="outline-danger" onClick={onVaciar}>
               Vaciar carrito
             </Button>
           </div>

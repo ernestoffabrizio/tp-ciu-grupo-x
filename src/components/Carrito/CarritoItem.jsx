@@ -6,34 +6,29 @@ function CarritoItem({
   onDisminuir,
   onEliminar
 }) {
-  const precioFormateado = producto.precio.toLocaleString("es-AR", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
+  const formatoPrecio = (precio) =>
+    precio.toLocaleString("es-AR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
 
   const subtotal = producto.precio * producto.cantidad;
-
-  //le da formato al precio.
-  const subtotalFormateado = subtotal.toLocaleString("es-AR", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
 
   return (
     <div className="d-flex gap-3 align-items-center border-bottom py-3">
       <img
         src={producto.imagen}
         alt={producto.nombre}
-        style={{ width: "100px", objectFit: "contain" }}
+        style={{ width: "100px", height: "120px",objectFit: "contain" }}
       />
 
       <div className="flex-grow-1">
         <h5>{producto.nombre}</h5>
 
-        <p className="mb-1">Talle: {producto.talle}</p>
+        <p className="mb-1">Talle: {producto.talleElegido}</p>
 
         <p className="mb-1">
-          Precio unitario: ${precioFormateado}
+          Precio unitario: ${formatoPrecio(producto.precio)}
         </p>
 
         <div className="d-flex align-items-center gap-2 my-2">
@@ -42,6 +37,7 @@ function CarritoItem({
             size="sm"
             onClick={() => onDisminuir(producto)}
             disabled={producto.cantidad <= 1}
+            aria-label="Disminuir cantidad"
           >
             −
           </Button>
@@ -52,14 +48,15 @@ function CarritoItem({
             variant="outline-dark"
             size="sm"
             onClick={() => onAumentar(producto)}
-            disabled={producto.cantidad >= producto.stock}
+            disabled={producto.cantidad >= producto.stockDisponible}
+            aria-label="Aumentar cantidad"
           >
             +
           </Button>
         </div>
 
         <p className="mb-2">
-          Subtotal: ${subtotalFormateado}
+          Subtotal: ${formatoPrecio(subtotal)}
         </p>
 
         <Button
