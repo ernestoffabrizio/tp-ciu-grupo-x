@@ -9,7 +9,7 @@ export function CarritoProvider ({children}) {
         setCarrito(carrito => {
             let repetido = false;
             const nuevoCarrito = carrito.map(producto => {
-                if (producto.id === item.id && producto.talle === talle) {
+                if (producto.id === item.id && producto.talleElegido === item.talleElegido) {
                     repetido = true;
                     return {...producto, cantidad: (producto.cantidad || 1) + cantidad};
                 }
