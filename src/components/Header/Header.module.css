@@ -267,11 +267,74 @@
   padding-top: 3.75rem;
 }
 
+.itemsDelCarrito {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.imgCarrito {
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.detalleCarrito {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .textoCarritoVacio {
   font-size: 1.125rem;
   color: var(--colorTexto);
   margin-bottom: 1rem;
   font-weight: 400;
+}
+
+.btnEliminarDelCarro {
+  background: transparent;
+  border: none;
+  color: #888483;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btnEliminarDelCarro:hover {
+  background-color: #fee2e2;
+  color: #ef4444;
+  transform: scale(1.05);
+}
+
+.btnIniciarCompra {
+  text-decoration: none;
+  background-color: #f1f5f9;
+  border: 1px solid transparent;
+  color: #060d16;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.btnIniciarCompra:hover {
+  background-color: #abd685;
+  color: #031305;
+  border-color: #158caa;
 }
 
 .enlaceVolverTienda {
