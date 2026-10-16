@@ -187,13 +187,4 @@ export default function Header() {
 
     </header>
   );
-s.contenidoCarrito}>
-          <Link to="/compra" className={styles.btnIniciarCompra}>
-            Iniciar Compra
-          </Link>
-        </div>
-      </div>
-
-    </header>
-  );
 }

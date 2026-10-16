@@ -8,9 +8,6 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop.jsx"
 import NotFound from "./pages/NotFound.jsx"
 import Contacto from "./pages/Contacto.jsx"
 import Nosotros from "./pages/Nosotros.jsx"
-import NotFound from "./pages/NotFound.jsx"
-import Contacto from "./pages/Contacto.jsx"
-import Nosotros from "./pages/Nosotros.jsx"
 import { CarritoProvider } from "./context/CarritoContext.jsx";
 import CompraPage from "./pages/CompraPage.jsx";
 
@@ -19,7 +16,7 @@ function App() {
   return (
       <CarritoProvider>
     <>
-
+        <ScrollToTop/>
         <Header />
 
         <Routes>
