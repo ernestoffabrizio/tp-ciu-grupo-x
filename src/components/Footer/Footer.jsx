@@ -11,7 +11,7 @@ export default function Footer() {
           <Link to="/contacto" className={styles.enlace}>Contacto</Link>
         </div>
         <div className={styles.columnaCentro}>
-          <h2 className={styles.logoFooter}>cammelcase</h2>
+          <h2 className={styles.logoFooter}>camelcase</h2>
         </div>
         <div className={styles.columna}>
           <h4 className={styles.tituloColumna}>Redes Sociales</h4>

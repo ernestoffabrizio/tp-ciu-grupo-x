@@ -72,7 +72,7 @@ export function CarritoProvider({ children }) {
   const disminuirCantidad = (item) => {
     setCarrito((actual) =>
       actual.map((producto) =>
-        producto.id === item.id && p.talleElegido === item.talleElegido
+        producto.id === item.id && producto.talleElegido === item.talleElegido
           ? { ...producto, cantidad: Math.max(1, producto.cantidad - 1) }
           : producto,
       ),

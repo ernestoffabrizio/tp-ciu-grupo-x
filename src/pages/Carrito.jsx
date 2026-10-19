@@ -50,7 +50,7 @@ function Carrito() {
 
             <h3>Total: ${formatoPrecio(total)}</h3>
 
-            <Button variant="outline-danger" onClick={onVaciar}>
+            <Button variant="outline-danger" onClick={vaciarCarrito}>
               Vaciar carrito
             </Button>
           </div>

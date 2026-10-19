@@ -1,9 +1,18 @@
 import { Link } from "react-router";
 import { useCarrito } from "../../context/CarritoContext";
+import { useState } from "react";
+import CompraRapidaModal from "../Modal/CompraRapidaModal";
 
 const ProductoCard = ({ productoActual }) => {
   // Evaluamos si el producto se quedó sin unidades
-  const sinStock = productoActual.stock === 0;
+  //const sinStock = productoActual.stock === 0;
+
+  const [mostrarModal, setMostrarModal] = useState(false);
+
+  const sinStock = !productoActual.talles?.some(
+    (talle) => talle.stock > 0
+  ); 
+
   const { agregarAlCarrito } = useCarrito();
   return (
     <div className="d-flex flex-column h-100 p-2">
@@ -40,12 +49,17 @@ const ProductoCard = ({ productoActual }) => {
         ) : (
           <button 
             className="btn btn-dark btn-sm w-100" 
-            onClick={() => agregarAlCarrito(productoActual)}
+            onClick={() => setMostrarModal(true)}
           >
             Agregar al carrito
           </button>
         )}
       </div>
+        <CompraRapidaModal
+          show={mostrarModal}
+          onHide={() => setMostrarModal(false)}
+          producto={productoActual}
+/>
     </div> 
   );
 };
