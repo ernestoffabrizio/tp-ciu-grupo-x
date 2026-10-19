@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router";
 import { useCarrito } from "../../context/CarritoContext";
+import formatoPrecio from "../../utils/formatoPrecio";
 import productos from "../../data/productos";
 
 export default function Header() {
@@ -22,12 +23,6 @@ export default function Header() {
     (sum, item) => sum + item.precio * item.cantidad,
     0,
   );
-
-  const formatoPrecio = (precio) =>
-    precio.toLocaleString("es-AR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
 
   useEffect(() => {
     function manejarClicFuera(evento) {

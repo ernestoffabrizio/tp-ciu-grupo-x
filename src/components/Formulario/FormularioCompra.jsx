@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCarrito } from "../../context/CarritoContext";
 import { validate } from "../../utils/validacionesCompra";
+import formatoPrecio from "../../utils/formatoPrecio";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 
@@ -12,12 +13,6 @@ const datosIniciales = {
   metodoEntrega: "",
   mensaje: "",
 };
-
-const formatoPrecio = (precio) =>
-  precio.toLocaleString("es-AR", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
 
 export default function FormularioCompra() {
   const { carrito, vaciarCarrito } = useCarrito();
@@ -77,7 +72,7 @@ export default function FormularioCompra() {
 
         <h2>¡Gracias por tu compra!</h2>
 
-        <p>Tu compra simulada en camelcase se confirmó correctamente.</p>
+        <p>Tu compra en CamelCase se confirmó correctamente.</p>
 
         <p className="text-secondary">
           Esta demostración no procesa pagos reales.

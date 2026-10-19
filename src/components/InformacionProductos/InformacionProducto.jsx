@@ -3,13 +3,14 @@ import { Link } from "react-router";
 import Button from "react-bootstrap/Button";
 import styles from "./InformacionProducto.module.css";
 import { useCarrito } from "../../context/CarritoContext";
+import formatoPrecio from "../../utils/formatoPrecio";
 
 function InformacionProducto({ producto }) {
   const [talleSeleccionado, setTalleSeleccionado] = useState(null);
   const [cantidad, setCantidad] = useState(1);
   const { agregarAlCarrito } = useCarrito();
   const talleActual = producto.talles.find(
-    (talle) => talle.numero === talleSeleccionado
+    (talle) => talle.numero === talleSeleccionado,
   );
 
   const stockDisponible = talleActual ? talleActual.stock : 0;
@@ -36,26 +37,17 @@ function InformacionProducto({ producto }) {
     }
   };
 
-  const precioFormateado = producto.precio.toLocaleString("es-AR", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  const precioFormateado = formatoPrecio(producto.precio);
 
-  const precioTransferencia = producto.precio * 0.90;
+  const precioTransferencia = producto.precio * 0.9;
 
-  const precioTransferenciaFormateado =
-    precioTransferencia.toLocaleString("es-AR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
+  const precioTransferenciaFormateado = formatoPrecio(precioTransferencia);
 
   return (
     <section className={styles.informacion}>
       <h1>{producto.nombre}</h1>
 
-      <p className={styles.precio}>
-        ${precioFormateado}
-      </p>
+      <p className={styles.precio}>${precioFormateado}</p>
 
       <p className={styles.precioTransferencia}>
         <strong>${precioTransferenciaFormateado}</strong> con transferencia
@@ -68,7 +60,9 @@ function InformacionProducto({ producto }) {
       </p>
 
       <div className={styles.seccionTalles}>
-        <p><strong>Elegí tu talle:</strong></p>
+        <p>
+          <strong>Elegí tu talle:</strong>
+        </p>
 
         <div className={styles.botonesTalles}>
           {producto.talles.map((talle) => (
@@ -105,8 +99,6 @@ function InformacionProducto({ producto }) {
         )}
       </div>
 
-      
-
       <div className={styles.controlesCantidad}>
         <Button
           variant="outline-secondary"
@@ -135,9 +127,7 @@ function InformacionProducto({ producto }) {
         onClick={() => agregarAlCarrito(producto, cantidad, talleSeleccionado)}
         disabled={!talleActual || stockDisponible === 0}
       >
-        {!talleActual
-          ? "Elegí tu talle"
-          : "Agregar al carrito"}
+        {!talleActual ? "Elegí tu talle" : "Agregar al carrito"}
       </Button>
 
       <Button

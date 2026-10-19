@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
 import CarritoItem from "../components/Carrito/CarritoItem";
 import { useCarrito } from "../context/CarritoContext";
+import formatoPrecio from "../../utils/formatoPrecio";
 
 function Carrito() {
   const {
@@ -21,11 +22,6 @@ function Carrito() {
     0,
   );
 
-  const formatoPrecio = (precio) =>
-    precio.toLocaleString("es-AR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
 
   return (
     <div className="container py-4">

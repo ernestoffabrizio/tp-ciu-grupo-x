@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import { Alert, Button, Modal } from "react-bootstrap";
 import { useCarrito } from "../../context/CarritoContext";
-
-const formatoPrecio = (precio) =>
-  precio.toLocaleString("es-AR", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+import formatoPrecio from "../../utils/formatoPrecio";
 
 function CompraRapidaModal({ show, onHide, producto }) {
   const [talleSeleccionado, setTalleSeleccionado] = useState(null);

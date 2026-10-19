@@ -1,17 +1,7 @@
 import Button from "react-bootstrap/Button";
+import formatoPrecio from "../../utils/formatoPrecio";
 
-function CarritoItem({
-  producto,
-  onAumentar,
-  onDisminuir,
-  onEliminar
-}) {
-  const formatoPrecio = (precio) =>
-    precio.toLocaleString("es-AR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-
+function CarritoItem({ producto, onAumentar, onDisminuir, onEliminar }) {
   const subtotal = producto.precio * producto.cantidad;
 
   return (
@@ -19,7 +9,7 @@ function CarritoItem({
       <img
         src={producto.imagen}
         alt={producto.nombre}
-        style={{ width: "100px", height: "120px",objectFit: "contain" }}
+        style={{ width: "100px", height: "120px", objectFit: "contain" }}
       />
 
       <div className="flex-grow-1">
@@ -55,9 +45,7 @@ function CarritoItem({
           </Button>
         </div>
 
-        <p className="mb-2">
-          Subtotal: ${formatoPrecio(subtotal)}
-        </p>
+        <p className="mb-2">Subtotal: ${formatoPrecio(subtotal)}</p>
 
         <Button
           variant="outline-danger"
