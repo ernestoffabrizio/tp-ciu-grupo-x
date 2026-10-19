@@ -59,3 +59,5 @@ function Carrito() {
     </div>
   );
 }
+
+export default Carrito;
