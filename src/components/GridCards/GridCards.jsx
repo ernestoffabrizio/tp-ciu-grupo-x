@@ -15,10 +15,10 @@ export default function GridCards() {
         {productosDestacados.map((producto) => {
           const precioFormateado = formatoPrecio(producto.precio);
 
-          const precioTransferencia = producto.precio * 0.9;
+          const precioDescuento = producto.precio * 0.9;
 
-          const precioTransferenciaFormateado =
-            formatoPrecio(precioTransferencia);
+          const precioDescuentoFormateado =
+            formatoPrecio(precioDescuento);
 
           return (
             <Col key={producto.id}>
@@ -52,11 +52,11 @@ export default function GridCards() {
 
                   <hr className={styles.separador} />
 
-                  <div className={styles.precioTransferencia}>
+                  <div className={styles.precioDescuento}>
                     <span className={styles.precioBold}>
-                      ${precioTransferenciaFormateado}
+                      ${precioDescuentoFormateado}
                     </span>{" "}
-                    con transferencia
+                    con efectivo o transferencia
                   </div>
                 </Card.Body>
               </Card>

@@ -21,36 +21,73 @@ export function CarritoProvider({ children }) {
       stockDisponible: talleDisponible.stock,
     };
 
-    let agregado = true;
+    const existente = carrito.find(
+      (producto) =>
+        producto.id === productoNuevo.id &&
+        producto.talleElegido === productoNuevo.talleElegido
+    );
 
-    setCarrito((actual) => {
-      const existente = actual.find(
-        (producto) =>
-          producto.id === productoNuevo.id &&
-          producto.talleElegido === productoNuevo.talleElegido,
-      );
+     const cantidadActual = existente?.cantidad ?? 0;
+     
+     const cantidadSolicitada = Math.max(1, Number(cantidad) || 1);
 
-      const cantidadActual = existente?.cantidad ?? 0;
-      const cantidadSolicitada = Math.max(1, Number(cantidad) || 1);
+    if (
+      cantidadActual + cantidadSolicitada >
+      talleDisponible.stock
+    ) {
+      return false;
+    }
 
-      if (cantidadActual + cantidadSolicitada > talleDisponible.stock) {
-        agregado = false;
-        return actual;
-      }
+    if (existente) {
+      setCarrito((actual) =>
+        actual.map((producto) =>
+        producto.id === productoNuevo.id &&
+        producto.talleElegido === productoNuevo.talleElegido
+        ? {
+          ...producto,
+          cantidad: producto.cantidad + cantidadSolicitada,
+        }
+        : producto
+      )
+    );
+  } else {
+    setCarrito((actual) => [
+      ...actual,
+      { ...productoNuevo, cantidad: cantidadSolicitada },
+    ]);
+  }
+  return true;
 
-      if (existente) {
-        return actual.map((producto) =>
-          producto.id === productoNuevo.id &&
-          producto.talleElegido === productoNuevo.talleElegido
-            ? { ...producto, cantidad: cantidadActual + cantidadSolicitada }
-            : producto,
-        );
-      }
+    // let agregado = true;
 
-      return [...actual, { ...productoNuevo, cantidad: cantidadSolicitada }];
-    });
+    // setCarrito((actual) => {
+    //   const existente = actual.find(
+    //     (producto) =>
+    //       producto.id === productoNuevo.id &&
+    //       producto.talleElegido === productoNuevo.talleElegido,
+    //   );
 
-    return agregado;
+      // const cantidadActual = existente?.cantidad ?? 0;
+      // const cantidadSolicitada = Math.max(1, Number(cantidad) || 1);
+
+      // if (cantidadActual + cantidadSolicitada > talleDisponible.stock) {
+      //   agregado = false;
+      //   return actual;
+      // }
+
+      // if (existente) {
+      //   return actual.map((producto) =>
+      //     producto.id === productoNuevo.id &&
+      //     producto.talleElegido === productoNuevo.talleElegido
+      //       ? { ...producto, cantidad: cantidadActual + cantidadSolicitada }
+      //       : producto,
+      //   );
+      // }
+
+      // return [...actual, { ...productoNuevo, cantidad: cantidadSolicitada }];
+    //});
+
+    //return agregado;
   };
 
   const aumentarCantidad = (item) => {

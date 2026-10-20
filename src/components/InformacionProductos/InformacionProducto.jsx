@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
-import Button from "react-bootstrap/Button";
 import styles from "./InformacionProducto.module.css";
 import { useCarrito } from "../../context/CarritoContext";
 import formatoPrecio from "../../utils/formatoPrecio";
+import { Alert, Button } from "react-bootstrap";
 
 function InformacionProducto({ producto }) {
   const [talleSeleccionado, setTalleSeleccionado] = useState(null);
   const [cantidad, setCantidad] = useState(1);
-  const [errorStock, setErrorStock] = useState("");
+  const [mensaje, setMensaje] = useState("");
+  const [tipoMensaje, setTipoMensaje] = useState("success");
 
   // Obtenemos el carrito y la función agregar del contexto
   const { carrito, agregarAlCarrito } = useCarrito();
@@ -30,56 +31,65 @@ function InformacionProducto({ producto }) {
   useEffect(() => {
     setTalleSeleccionado(null);
     setCantidad(1);
-    setErrorStock("");
+    setMensaje("");
   }, [producto.id]);
 
   const seleccionarTalle = (numero) => {
     setTalleSeleccionado(numero);
     setCantidad(1);
-    setErrorStock("");
+    setMensaje("");
   };
 
   const aumentarCantidad = () => {
     if (cantidad < stockDisponible) {
       setCantidad(cantidad + 1);
-      setErrorStock("");
+      setMenasaje("");
     }
   };
 
   const disminuirCantidad = () => {
     if (cantidad > 1) {
       setCantidad(cantidad - 1);
-      setErrorStock("");
+      setMensaje("");
     }
   };
 
   // Manejador de agregar al carrito con validación de tope
   const handleAgregarAlCarrito = () => {
-    if (!talleActual) return;
+    if (!talleActual) {
+      setTipoMensaje("danger");
+      setMensaje("Seleccioná un talle antes de continuar.")
+      return
+    };
 
     // Si lo que ya hay en el carrito más lo que se quiere agregar supera el stock del talle
     if (cantidadEnCarrito + cantidad > talleActual.stock) {
-      setErrorStock(
+      setTipoMensaje("warning")
+      setMensaje(
         "No se pudo agregar. Revisá el stock disponible de ese talle."
       );
       return;
     }
 
-    const resultado = agregarAlCarrito(producto, cantidad, talleSeleccionado);
+    const agregado = agregarAlCarrito(producto, cantidad, talleSeleccionado);
 
     // Si la función del contexto retorna false al no poder agregar
-    if (resultado === false) {
-      setErrorStock(
+    if (agregado === false) {
+      setTipoMensaje("warning")
+      setMensaje(
         "No se pudo agregar. Revisá el stock disponible de ese talle."
       );
-    } else {
-      setErrorStock("");
+      return;
     }
+    setTipoMensaje("success");
+    setMensaje(
+      `¡${producto.nombre} (T${talleSeleccionado}) agregado al carrito!`
+    );
   };
 
   const precioFormateado = formatoPrecio(producto.precio);
-  const precioTransferencia = producto.precio * 0.9;
-  const precioTransferenciaFormateado = formatoPrecio(precioTransferencia);
+  const precioDescuento = producto.precio * 0.9;
+  const precioDescuentoFormateado = formatoPrecio(precioDescuento);
 
   return (
     <section className={styles.informacion}>
@@ -87,8 +97,8 @@ function InformacionProducto({ producto }) {
 
       <p className={styles.precio}>${precioFormateado}</p>
 
-      <p className={styles.precioTransferencia}>
-        <strong>${precioTransferenciaFormateado}</strong> con transferencia
+      <p className={styles.precioDescuento}>
+        <strong>${precioDescuentoFormateado}</strong> con efectivo o transferencia
       </p>
 
       <p className={styles.descripcion}>{producto.descripcion}</p>
@@ -160,10 +170,10 @@ function InformacionProducto({ producto }) {
       </div>
 
       {/* Cartel de aviso cuando se alcanza el stock máximo */}
-      {errorStock && (
-        <div className="alert alert-warning py-2 mb-3" role="alert">
-          {errorStock}
-        </div>
+      {mensaje && (
+        <Alert variant={tipoMensaje} className="mt-3 mb-3">
+          {mensaje}
+        </Alert>
       )}
 
       <Button

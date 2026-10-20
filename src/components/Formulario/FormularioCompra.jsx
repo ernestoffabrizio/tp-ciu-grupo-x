@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useCarrito } from "../../context/CarritoContext";
 import { validate } from "../../utils/validacionesCompra";
+import { Link } from "react-router";
+import styles from "../../pages/NotFound.module.css";
 import formatoPrecio from "../../utils/formatoPrecio";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
@@ -85,11 +87,11 @@ export default function FormularioCompra() {
 
         <h2>¡Gracias por tu compra!</h2>
 
-        <p>Tu compra en CamelCase se confirmó correctamente.</p>
+        <p>Tu compra en CammelCase se confirmó correctamente.</p>
 
-        <p className="text-secondary">
-          Esta demostración no procesa pagos reales.
-        </p>
+        <Link to="/" className={styles.enlaceInicio}>
+          Regresar al inicio
+        </Link>
       </section>
     );
   }

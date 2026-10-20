@@ -144,7 +144,7 @@ export default function Header() {
                 />
                 <polygon points="68,2 72,4 68,6" fill="currentColor" />
               </svg>
-              <span>camelcase</span>
+              <span>cammelcase</span>
             </div>
           </Link>
         </div>
@@ -235,7 +235,7 @@ export default function Header() {
                       </span>
 
                       <span className={styles.precioResultadoBusqueda}>
-                        ${producto.precio.toLocaleString("es-AR")}
+                        ${formatoPrecio(producto.precio)}
                       </span>
                     </div>
                   </Link>

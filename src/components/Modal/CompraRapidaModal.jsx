@@ -45,7 +45,7 @@ function CompraRapidaModal({ show, onHide, producto }) {
 
     setTipoMensaje("success");
     setMensaje(
-      `¡${producto.nombre} talle ${talleSeleccionado} agregado al carrito!`,
+      `¡${producto.nombre} (T${talleSeleccionado}) agregado al carrito!`,
     );
   };
 
