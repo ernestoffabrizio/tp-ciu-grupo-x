@@ -8,39 +8,77 @@ import formatoPrecio from "../../utils/formatoPrecio";
 function InformacionProducto({ producto }) {
   const [talleSeleccionado, setTalleSeleccionado] = useState(null);
   const [cantidad, setCantidad] = useState(1);
-  const { agregarAlCarrito } = useCarrito();
+  const [errorStock, setErrorStock] = useState("");
+
+  // Obtenemos el carrito y la función agregar del contexto
+  const { carrito, agregarAlCarrito } = useCarrito();
+
   const talleActual = producto.talles.find(
     (talle) => talle.numero === talleSeleccionado,
   );
 
   const stockDisponible = talleActual ? talleActual.stock : 0;
 
+  // Calculamos cuántas unidades de este modelo y talle ya están en el carrito
+  const itemEnCarrito = carrito.find(
+    (item) =>
+      item.id === producto.id &&
+      (item.talleElegido === talleSeleccionado || item.talle === talleSeleccionado)
+  );
+  const cantidadEnCarrito = itemEnCarrito ? itemEnCarrito.cantidad : 0;
+
   useEffect(() => {
     setTalleSeleccionado(null);
     setCantidad(1);
+    setErrorStock("");
   }, [producto.id]);
 
   const seleccionarTalle = (numero) => {
     setTalleSeleccionado(numero);
     setCantidad(1);
+    setErrorStock("");
   };
 
   const aumentarCantidad = () => {
     if (cantidad < stockDisponible) {
       setCantidad(cantidad + 1);
+      setErrorStock("");
     }
   };
 
   const disminuirCantidad = () => {
     if (cantidad > 1) {
       setCantidad(cantidad - 1);
+      setErrorStock("");
+    }
+  };
+
+  // Manejador de agregar al carrito con validación de tope
+  const handleAgregarAlCarrito = () => {
+    if (!talleActual) return;
+
+    // Si lo que ya hay en el carrito más lo que se quiere agregar supera el stock del talle
+    if (cantidadEnCarrito + cantidad > talleActual.stock) {
+      setErrorStock(
+        "No se pudo agregar. Revisá el stock disponible de ese talle."
+      );
+      return;
+    }
+
+    const resultado = agregarAlCarrito(producto, cantidad, talleSeleccionado);
+
+    // Si la función del contexto retorna false al no poder agregar
+    if (resultado === false) {
+      setErrorStock(
+        "No se pudo agregar. Revisá el stock disponible de ese talle."
+      );
+    } else {
+      setErrorStock("");
     }
   };
 
   const precioFormateado = formatoPrecio(producto.precio);
-
   const precioTransferencia = producto.precio * 0.9;
-
   const precioTransferenciaFormateado = formatoPrecio(precioTransferencia);
 
   return (
@@ -121,10 +159,17 @@ function InformacionProducto({ producto }) {
         </Button>
       </div>
 
+      {/* Cartel de aviso cuando se alcanza el stock máximo */}
+      {errorStock && (
+        <div className="alert alert-warning py-2 mb-3" role="alert">
+          {errorStock}
+        </div>
+      )}
+
       <Button
         variant="dark"
         className={styles.botonCarrito}
-        onClick={() => agregarAlCarrito(producto, cantidad, talleSeleccionado)}
+        onClick={handleAgregarAlCarrito}
         disabled={!talleActual || stockDisponible === 0}
       >
         {!talleActual ? "Elegí tu talle" : "Agregar al carrito"}

@@ -125,7 +125,7 @@ export default function Header() {
           <Link
             to="/"
             className={styles.enlaceLogotipo}
-            aria-label="camelcase, ir al inicio"
+            aria-label="cammelcase, ir al inicio"
           >
             <div className={styles.logotipoTexto}>
               <svg

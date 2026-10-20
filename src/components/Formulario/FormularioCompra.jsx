@@ -11,6 +11,7 @@ const datosIniciales = {
   telefono: "",
   direccion: "",
   metodoEntrega: "",
+  formaPago: "",
   mensaje: "",
 };
 
@@ -22,10 +23,16 @@ export default function FormularioCompra() {
   const [procesando, setProcesando] = useState(false);
   const [compraConfirmada, setCompraConfirmada] = useState(false);
 
-  const total = carrito.reduce(
+  //  Cálculo dinámico de totales y descuento 
+  const subtotal = carrito.reduce(
     (acumulado, producto) => acumulado + producto.precio * producto.cantidad,
-    0,
+    0
   );
+
+  const tieneDescuento =
+    formData.formaPago === "transferencia" || formData.formaPago === "efectivo";
+  const descuento = tieneDescuento ? subtotal * 0.1 : 0;
+  const totalFinal = subtotal - descuento;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -39,12 +46,18 @@ export default function FormularioCompra() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    //no permitir confirmar con el carrito vacío
+    // No permitir confirmar con el carrito vacío
     if (carrito.length === 0 || procesando || compraConfirmada) {
       return;
     }
 
     const nuevosErrores = validate(formData);
+
+    // Validación obligatoria de forma de pago
+    if (!formData.formaPago) {
+      nuevosErrores.formaPago = "Por favor, seleccioná una forma de pago.";
+    }
+
     setErrors(nuevosErrores);
 
     if (Object.keys(nuevosErrores).length > 0) {
@@ -108,8 +121,7 @@ export default function FormularioCompra() {
                 <div>
                   <p className="mb-1">{producto.nombre}</p>
                   <small className="text-secondary">
-                    Talle: {producto.talleElegido} · Cantidad:{" "}
-                    {producto.cantidad}
+                    Talle: {producto.talleElegido} · Cantidad: {producto.cantidad}
                   </small>
                 </div>
 
@@ -119,9 +131,31 @@ export default function FormularioCompra() {
               </div>
             ))}
 
-            <div className="d-flex justify-content-between mt-3">
+            {/* Desglose dinámico si aplica descuento */}
+            {tieneDescuento && (
+              <>
+                <div className="d-flex justify-content-between mt-3 text-secondary">
+                  <span>Subtotal</span>
+                  <span>${formatoPrecio(subtotal)}</span>
+                </div>
+                <div className="d-flex justify-content-between text-success">
+                  <span>
+                    Descuento 10% (
+                    {formData.formaPago === "transferencia"
+                      ? "Transferencia"
+                      : "Efectivo"}
+                    )
+                  </span>
+                  <span>-${formatoPrecio(descuento)}</span>
+                </div>
+              </>
+            )}
+
+            <div className={`d-flex justify-content-between ${tieneDescuento ? "mt-2" : "mt-3"}`}>
               <strong>Total</strong>
-              <strong>${formatoPrecio(total)}</strong>
+              <strong className={tieneDescuento ? "text-success" : ""}>
+                ${formatoPrecio(totalFinal)}
+              </strong>
             </div>
           </div>
         </div>
@@ -219,7 +253,7 @@ export default function FormularioCompra() {
 
             <div className="mb-3">
               <label htmlFor="metodoEntrega" className="form-label">
-                Método de entrega
+                Método de entrega *
               </label>
 
               <select
@@ -239,6 +273,33 @@ export default function FormularioCompra() {
 
               {errors.metodoEntrega && (
                 <div className="invalid-feedback">{errors.metodoEntrega}</div>
+              )}
+            </div>
+
+            {/* Selector de Forma de Pago */}
+            <div className="mb-3">
+              <label htmlFor="formaPago" className="form-label">
+                Forma de pago *
+              </label>
+
+              <select
+                id="formaPago"
+                name="formaPago"
+                className={`form-select ${
+                  errors.formaPago ? "is-invalid" : ""
+                }`}
+                value={formData.formaPago}
+                onChange={handleChange}
+                disabled={procesando}
+              >
+                <option value="">Elegí una opción</option>
+                <option value="efectivo">Efectivo (10% descuento)</option>
+                <option value="transferencia">Transferencia bancaria (10% descuento)</option>
+                <option value="tarjeta">Tarjeta de crédito</option>
+              </select>
+
+              {errors.formaPago && (
+                <div className="invalid-feedback">{errors.formaPago}</div>
               )}
             </div>
 
