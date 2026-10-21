@@ -9,7 +9,6 @@ img {
   height: auto;
 }
 
-
 :root {
   --colorFondo: #ffffff;
   --colorTexto: #000000;
@@ -18,4 +17,20 @@ img {
   --colorHover: rgba(0, 0, 0, 0.45);
   --fuentePrincipal: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --fuenteLogo: "Playfair Display", "Didot", "Bodoni MT", "Georgia", serif;
+}
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedorPrincipal {
+  flex: 1;
 }

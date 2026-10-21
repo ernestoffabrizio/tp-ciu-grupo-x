@@ -19,6 +19,7 @@ function App() {
         <ScrollToTop/>
         <Header />
 
+        <main className="contenedorPrincipal">
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/productos" element={<Productos />} />
@@ -28,6 +29,8 @@ function App() {
           <Route path="/compra" element={<CompraPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+
+        </main>
 
         <Footer />
 

@@ -57,37 +57,6 @@ export function CarritoProvider({ children }) {
     ]);
   }
   return true;
-
-    // let agregado = true;
-
-    // setCarrito((actual) => {
-    //   const existente = actual.find(
-    //     (producto) =>
-    //       producto.id === productoNuevo.id &&
-    //       producto.talleElegido === productoNuevo.talleElegido,
-    //   );
-
-      // const cantidadActual = existente?.cantidad ?? 0;
-      // const cantidadSolicitada = Math.max(1, Number(cantidad) || 1);
-
-      // if (cantidadActual + cantidadSolicitada > talleDisponible.stock) {
-      //   agregado = false;
-      //   return actual;
-      // }
-
-      // if (existente) {
-      //   return actual.map((producto) =>
-      //     producto.id === productoNuevo.id &&
-      //     producto.talleElegido === productoNuevo.talleElegido
-      //       ? { ...producto, cantidad: cantidadActual + cantidadSolicitada }
-      //       : producto,
-      //   );
-      // }
-
-      // return [...actual, { ...productoNuevo, cantidad: cantidadSolicitada }];
-    //});
-
-    //return agregado;
   };
 
   const aumentarCantidad = (item) => {

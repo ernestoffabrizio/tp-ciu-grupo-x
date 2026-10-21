@@ -43,7 +43,7 @@ function InformacionProducto({ producto }) {
   const aumentarCantidad = () => {
     if (cantidad < stockDisponible) {
       setCantidad(cantidad + 1);
-      setMenasaje("");
+      setMensaje("");
     }
   };
 
