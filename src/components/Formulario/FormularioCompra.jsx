@@ -53,12 +53,7 @@ export default function FormularioCompra() {
       return;
     }
 
-    const nuevosErrores = validate(formData);
-
-    // Validación obligatoria de forma de pago
-    if (!formData.formaPago) {
-      nuevosErrores.formaPago = "Por favor, seleccioná una forma de pago.";
-    }
+    const nuevosErrores = validate(formData);   
 
     setErrors(nuevosErrores);
 
