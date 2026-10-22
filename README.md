@@ -2,7 +2,7 @@
 
 ## Descripción
 
-
+Página web "cammelcase" simulando una tienda de calzado
 
 ## Integrantes del proyecto
 - Calzon Fabrizio, Ernesto - 47.313.652
@@ -11,6 +11,9 @@
 - Rios, Julieta Carolina - 45.206.363
 - Roces, Guido Nicolás - 32.140.509
 
+### Link a deploy
+
+- https://tp-ciu-grupo-8.vercel.app/
 
 ## Tecnologías utilizadas
 
@@ -98,3 +101,4 @@
 
 - Interfaz adaptable a distintos tamaños de pantalla.
 - Uso de componentes de React Bootstrap y estilos CSS personalizados.
+
