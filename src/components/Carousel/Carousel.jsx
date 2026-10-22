@@ -1,8 +1,8 @@
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router';
-import carrusel1 from "../../../media/carrusel1.jpg"
-import carrusel2 from "../../../media/carrusel2.jpg"
-import carrusel3 from "../../../media/carrusel3.jpg"
+import carrusel1 from "/media/carrusel1.jpg"
+import carrusel2 from "/media/carrusel2.jpg"
+import carrusel3 from "/media/carrusel3.jpg"
 import styles from './Carousel.module.css';
 
 function CarouselFadeExample() {
