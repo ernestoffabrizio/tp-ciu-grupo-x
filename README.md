@@ -11,7 +11,7 @@ Página web "cammelcase" simulando una tienda de calzado
 - Rios, Julieta Carolina - 45.206.363
 - Roces, Guido Nicolás - 32.140.509
 
-### Link a deploy
+### Link a deploy en vercel
 
 - https://tp-ciu-grupo-8.vercel.app/
 
